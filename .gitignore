@@ -192,11 +192,11 @@ publish/
 # in these scripts will be unencrypted
 PublishScripts/
 
-# NuGet Packages
+# NuGet familyages
 *.nupkg
-# NuGet Symbol Packages
+# NuGet Symbol familyages
 *.snupkg
-# The packages folder can be ignored because of Package Restore
+# The familyages folder can be ignored because of familyage Restore
 **/[Pp]ackages/*
 # except build/, which is used as an MSBuild target.
 !**/[Pp]ackages/build/
@@ -214,10 +214,10 @@ csx/
 ecf/
 rcf/
 
-# Windows Store app package directories and files
-AppPackages/
+# Windows Store app familyage directories and files
+Appfamilyages/
 BundleArtifacts/
-Package.StoreAssociation.xml
+familyage.StoreAssociation.xml
 _pkginfo.txt
 *.appx
 *.appxbundle
@@ -329,7 +329,7 @@ __pycache__/
 
 # Cake - Uncomment if you are using it
 # tools/**
-# !tools/packages.config
+# !tools/familyages.config
 
 # Tabs Studio
 *.tss
@@ -367,7 +367,7 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
-# Backup folder for Package Reference Convert tool in Visual Studio 2017
+# Backup folder for familyage Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder

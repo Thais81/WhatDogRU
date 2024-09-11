@@ -15,8 +15,8 @@ $question = $questionData['question'];
 $userId = $questionData['user_id'];
 $answers = $questionData['answers'];
 $features = $questionData['features'];
-$offer = $questionData['offer'];
-$totalPrice = $questionData['total_price'];
+$breed = $questionData['breed'];
+$totalrate = $questionData['total_rate'];
 
 ?>
 
@@ -37,19 +37,19 @@ $totalPrice = $questionData['total_price'];
             <input type="hidden" name="answer_id" id="answer_id">
             <input type="hidden" name="user_id" id="user_id">
         </form>
-    <?php elseif (isset($offer)) : ?>
+    <?php elseif (isset($breed)) : ?>
         <div class="resultBox">
-            <h1>Votre résultat: <?php echo htmlspecialchars($totalPrice); ?> €</h1>
+            <h1>Votre résultat: <?php echo htmlspecialchars($totalrate); ?> €</h1>
             <h2>En détails:</h2>
-            <div class='offerItem'>
-                <p><?php echo htmlspecialchars($offer->getOfferName()); ?></p>
-                <p>À partir de: <?php echo htmlspecialchars($offer->getOfferPrice()); ?> €</p>
+            <div class='breedItem'>
+                <p><?php echo htmlspecialchars($breed->getbreedName()); ?></p>
+                <p>À partir de: <?php echo htmlspecialchars($breed->getbreedrate()); ?> €</p>
             </div>
             <?php if ($features) ?>
             <?php foreach ($features as $feature) : ?>
                 <div class="featureItem">
                     <p><?php echo htmlspecialchars($feature->getfeatureContent()); ?></p>
-                    <p><?php echo htmlspecialchars($feature->getfeaturePrice()); ?> €</p>
+                    <p><?php echo htmlspecialchars($feature->getfeaturerate()); ?> €</p>
                 </div>
             <?php endforeach; ?>
             <button id="bye">Quitter</button>

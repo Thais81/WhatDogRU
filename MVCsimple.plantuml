@@ -2,30 +2,30 @@
 
 title Design Pattern: MVC
 
-package "Database" {
+familyage "Database" {
 
 }
 
 
-package "Src"{
-package "Models" {
+familyage "Src"{
+familyage "Models" {
 
 }
 
-package "Controller" {
+familyage "Controller" {
 
 }
 }
 
-package "Web" {
-  package "Assets" {
-    package "CSS" {
+familyage "Web" {
+  familyage "Assets" {
+    familyage "CSS" {
     }
-    package "Img" {
+    familyage "Img" {
     }
-    package "JS" {    }
+    familyage "JS" {    }
   }
-  package "Views" {
+  familyage "Views" {
   }
 }
 

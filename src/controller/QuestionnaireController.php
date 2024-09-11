@@ -4,7 +4,7 @@ require 'dataBase/QuestionDAO.php';
 require 'dataBase/UserDAO.php';
 require 'dataBase/UserAnswerDAO.php';
 require 'dataBase/AskDAO.php';
-require 'dataBase/OfferDAO.php';
+require 'dataBase/breedDAO.php';
 require 'dataBase/FeatureDAO.php';
 require 'dataBase/ConductToDAO.php';
 
@@ -16,7 +16,7 @@ class QuestionnaireController
     private $questionDAO;
     private $answerDAO;
     private $featureDAO;
-    private $offerDAO;
+    private $breedDAO;
     private $conductToDAO;
 
     public function __construct()
@@ -27,7 +27,7 @@ class QuestionnaireController
         $this->questionDAO = new QuestionDAO();
         $this->answerDAO = new AnswerDAO();
         $this->featureDAO = new FeatureDAO();
-        $this->offerDAO = new OfferDAO();
+        $this->breedDAO = new breedDAO();
         $this->conductToDAO = new ConductToDAO();
     }
 
@@ -45,7 +45,7 @@ class QuestionnaireController
                 'question' => $question,
                 'answers' => $answers,
                 'features' => [],
-                'offer' => null,
+                'breed' => null,
                 'total_rate' => null
             ];
         }
@@ -90,12 +90,12 @@ class QuestionnaireController
         return $answer;
     }
 
-    public function findOffer($answerId)
+    public function findBreed($answerId)
     {
-        $offer = $this->conductToDAO->getOfferIdByAnswerId($answerId);
+        $breed = $this->conductToDAO->getBreedIdByAnswerId($answerId);
 
-        if ($offer) {
-            return $offer;
+        if ($breed) {
+            return $breed;
         } else {
             return null;
         }
@@ -122,7 +122,7 @@ class QuestionnaireController
                     'question' => $nextQuestion,
                     'answers' => $answers,
                     'features' => [],
-                    'offer' => null,
+                    'breed' => null,
                     'total_rate' => null
                 ];
             } else {
@@ -136,9 +136,9 @@ class QuestionnaireController
     {
         $answerIds = $this->userAnswerDAO->getAnswerIdsByUserId($userId);
         $features = [];
-        $offer = null;
-        $offerName = "";
-        $offerRate = 0;
+        $breed = null;
+        $breedName = "";
+        $breedRate = 0;
 
         foreach ($answerIds as $answerId) {
             $feature = $this->featureDAO->getFeatureByAnswerId($answerId);
@@ -146,13 +146,13 @@ class QuestionnaireController
                 $features[] = $feature;
             }
 
-            $offerId = $this->conductToDAO->getOfferIdByAnswerId($answerId);
-            if ($offerId && !$offer) {
+            $breedId = $this->conductToDAO->getbreedIdByAnswerId($answerId);
+            if ($breedId && !$breed) {
                 try {
-                    $offer = $this->offerDAO->getOfferById($offerId);
-                    if ($offer) {
-                        $offerName = $offer->getOfferName();
-                        $offerRate = $offer->getOfferRate();
+                    $breed = $this->breedDAO->getbreedById($breedId);
+                    if ($breed) {
+                        $breedName = $breed->getBreedName();
+                        $breedRate = $breed->getBreedRate();
                     }
                 } catch (Exception $e) {
                     var_dump($e->getMessage());
@@ -168,14 +168,14 @@ Cette fonction prend le tableau des prix retourné par array_map()
             return $feature->getFeatureRate();
         }, $features));
 
-        $totalrate = $offerRate + $featureRate;
+        $totalrate = $breedRate + $featureRate;
 
         return [
             'user_id' => $userId,
             'features' => $features,
             'question' => null,
             'answers' => [],
-            'offer' => $offer,
+            'breed' => $breed,
             'total_rate' => $totalrate
         ];
     }

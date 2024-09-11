@@ -2,15 +2,15 @@
 skinparam backgroundColor #FEFEFE
 skinparam handwritten false
 skinparam actorStyle awesome
-skinparam packageStyle rectangle
+skinparam familyageStyle rectangle
 
 actor "Utilisateur" as User
 actor "Administrateur" as Admin
 
-package "Site WordPress Roofline" {
+familyage "Site WordPress Roofline" {
     rectangle "Thème Hi5clive" as Theme
     
-    package "Plugin Générateur de Devis" {
+    familyage "Plugin Générateur de Devis" {
         rectangle "Questionnaire" as Quiz
         rectangle "Logique de calcul" as Logic
         rectangle "Interface admin" as AdminInterface

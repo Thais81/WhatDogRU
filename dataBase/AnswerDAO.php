@@ -29,7 +29,7 @@ class AnswerDAO extends DAO
         $result = new Answer();
         $result->setAnswerId($row['answer_id']);
         $result->setAnswerContent($row['answer_content']);
-        $result->setPackId($row['pack_id']);
+        $result->setFamilyId($row['family_id']);
         $result->setQuestionId($row['question_id']);
         $result->setIsLastAnswer($row['is_last_answer']);
         return $result;
@@ -57,11 +57,11 @@ class AnswerDAO extends DAO
         return $answers;
     }
 
-    public function getAnswerByPackId($pack_id)
+    public function getAnswerByfamilyId($family_id)
     {
-        $query = "SELECT * FROM {$this->tableName} WHERE pack_id = :pack_id";
+        $query = "SELECT * FROM {$this->tableName} WHERE family_id = :family_id";
         $stmt = $this->pdo->prepare($query);
-        $stmt->execute(['pack_id' => $pack_id]);
+        $stmt->execute(['family_id' => $family_id]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $answers = [];
         foreach ($rows as $row) {
@@ -80,11 +80,11 @@ class AnswerDAO extends DAO
         return $stmt->fetchColumn() > 0;
     }
 
-    public function updateAnswer($answer_id, $question_id, $pack_id, $answer_content)
+    public function updateAnswer($answer_id, $question_id, $family_id, $answer_content)
     {
         $data = [
             'question_id' => $question_id,
-            'pack_id' => $pack_id,
+            'family_id' => $family_id,
             'answer_content' => $answer_content
         ];
         $this->update($answer_id, $data);

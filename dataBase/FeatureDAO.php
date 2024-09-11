@@ -11,12 +11,12 @@ class FeatureDAO extends DAO
         parent::__construct('feature', 'feature_id');
     }
 
-    public function createFeature($feature_content, $feature_rate, $pack_id)
+    public function createFeature($feature_content, $feature_rate, $family_id)
     {
         $data = [
             'feature_content' => $feature_content,
             'feature_rate' => $feature_rate,
-            'pack_id' => $pack_id
+            'family_id' => $family_id
 
         ];
         $featureId = $this->create($data);
@@ -29,8 +29,8 @@ class FeatureDAO extends DAO
         $result = new Feature();
         $result->setfeatureId($row['feature_id']);
         $result->setfeatureContent($row['feature_content']);
-        $result->setfeatureRate($row['feature_rate']);
-        $result->setPackId($row['pack_id']);
+        $result->setFeatureRate($row['feature_rate']);
+        $result->setFamilyId($row['family_id']);
         return $result;
     }
     public function getAllFeatures()
@@ -43,11 +43,11 @@ class FeatureDAO extends DAO
         return $this->getById($feature_id);
     }
 
-    public function getFeatureByPackId($pack_id)
+    public function getFeatureByfamilyId($family_id)
     {
-        $query = "SELECT * FROM feature WHERE pack_id = :pack_id";
+        $query = "SELECT * FROM feature WHERE family_id = :family_id";
         $stmt = $this->pdo->prepare($query);
-        $stmt->execute(['pack_id' => $pack_id]);
+        $stmt->execute(['family_id' => $family_id]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $features = [];
         foreach ($rows as $row) {
@@ -75,15 +75,15 @@ class FeatureDAO extends DAO
         }
     }
 
-    public function updateFeature($feature_id, $feature_content, $feature_rate, $pack_id)
+    public function updateFeature($feature_id, $feature_content, $feature_rate, $family_id)
     {
         $data = [
             'feature_content',
             $feature_content,
             'feature_rate',
             $feature_rate,
-            'pack_id',
-            $pack_id
+            'family_id',
+            $family_id
         ];
         $this->update($feature_id, $data);
     }

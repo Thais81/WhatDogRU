@@ -1,35 +1,41 @@
 <?php
 require_once 'dataBase/DatabaseConn.php';
 
-class Question {
+class Question
+{
     private $question_id;
     private $question_content;
-    private $pack_id;
+    private $family_id;
 
     // Getters
-    public function getQuestionId() {
-        return $this->question_id; 
+    public function getQuestionId()
+    {
+        return $this->question_id;
     }
 
-    public function getQuestionContent() {
+    public function getQuestionContent()
+    {
         return $this->question_content;
     }
 
-    public function getPackId() {
-        return $this->pack_id;
+    public function getFamilyId()
+    {
+        return $this->family_id;
     }
 
     // Setters
-    public function setQuestionId($question_id) {
+    public function setQuestionId($question_id)
+    {
         $this->question_id = $question_id;
     }
 
-    public function setPackId($pack_id) {
-        $this->pack_id = $pack_id;
+    public function setFamilyId($family_id)
+    {
+        $this->family_id = $family_id;
     }
 
-    public function setQuestionContent($question_content) {
+    public function setQuestionContent($question_content)
+    {
         $this->question_content = $question_content;
     }
-    
 }

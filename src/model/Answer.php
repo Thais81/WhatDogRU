@@ -5,7 +5,7 @@ class Answer
 {
     private $answer_id;
     private $answer_content;
-    private $pack_id;
+    private $family_id;
     private $question_id;
     private $isLastAnswer;
 
@@ -20,9 +20,9 @@ class Answer
         return $this->answer_content;
     }
 
-    public function getPackId()
+    public function getFamilyId()
     {
-        return $this->pack_id;
+        return $this->family_id;
     }
 
     public function getQuestionId()
@@ -46,9 +46,9 @@ class Answer
         $this->answer_content = $answer_content;
     }
 
-    public function setPackId($pack_id)
+    public function setFamilyId($family_id)
     {
-        $this->pack_id = $pack_id;
+        $this->family_id = $family_id;
     }
 
     public function setQuestionId($question_id)

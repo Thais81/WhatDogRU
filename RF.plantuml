@@ -1,17 +1,17 @@
 @startuml Devis Roofline
 
-package src{
-    package model{
+familyage src{
+    familyage model{
         class Question(
             pdo: ;
             private table_name = "question";
             private question_id;
             private question_content;
-            private pack_id;
+            private family_id;
         )
         class Answer()
-        class Pack
-        class Offer()
+        class family
+        class breed()
         class service()
         class Session()
         class SessionAnswer()
@@ -19,7 +19,7 @@ package src{
         class RefusalReason()
 
     }
-    package controller{
+    familyage controller{
     class QuestionnaireController()
     class ResultController()
     class ContactController()
@@ -30,8 +30,8 @@ package src{
 
     }
 }
-package web{
-package view{
+familyage web{
+familyage view{
     header.php
     footer.php
     pie-chart.php
@@ -40,19 +40,19 @@ package view{
     reasonForm.php
     result.php
 }
-package assets{
+familyage assets{
   style.css
   script.js  
 }
 }
 
 
-package database{
+familyage database{
 class config()
 class database()
 }
 
-package public{
+familyage public{
 index.php
 }
 @enduml

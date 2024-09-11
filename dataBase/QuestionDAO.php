@@ -11,11 +11,11 @@ class QuestionDAO extends DAO
         parent::__construct('question', 'question_id');
     }
 
-    public function createQuestion($question_content, $pack_id)
+    public function createQuestion($question_content, $family_id)
     {
         $data = [
             'question_content' => $question_content,
-            'pack_id' => $pack_id
+            'family_id' => $family_id
         ];
         $questionId = $this->create($data);
         return $this->getQuestionById($questionId);
@@ -26,7 +26,7 @@ class QuestionDAO extends DAO
             $result = new Question();
             $result->setQuestionId($row['question_id']);
             $result->setQuestionContent($row['question_content']);
-            $result->setPackId($row['pack_id']);
+            $result->setFamilyId($row['family_id']);
             return $result;
         }
     }
@@ -67,12 +67,12 @@ class QuestionDAO extends DAO
         return $this->getById($question_id);
     }
 
-    public function updateQuestion($question_id, $question_content, $pack_id)
+    public function updateQuestion($question_id, $question_content, $family_id)
     {
         $data = [
             'question_id' => $question_id,
             'question_content' => $question_content,
-            'pack_id' => $pack_id
+            'family_id' => $family_id
         ];
         $this->update($question_id, $data);
     }

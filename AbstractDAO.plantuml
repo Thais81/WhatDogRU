@@ -22,8 +22,8 @@ class AnswerDAO
 class AskDAO
 class ConductToDAO
 class ContactFormDAO
-class OfferDAO
-class PackDAO
+class breedDAO
+class familyDAO
 class PairDAO
 class QuestionDAO
 class UserDAO
@@ -33,8 +33,8 @@ DAO <|-- AnswerDAO
 DAO <|-- AskDAO
 DAO <|-- ConductToDAO
 DAO <|-- ContactFormDAO
-DAO <|-- OfferDAO
-DAO <|-- PackDAO
+DAO <|-- breedDAO
+DAO <|-- familyDAO
 DAO <|-- PairDAO
 DAO <|-- QuestionDAO
 DAO <|-- UserDAO

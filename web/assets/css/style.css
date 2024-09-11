@@ -101,7 +101,7 @@ body {
     margin: 5px 0;
 }
 
-.offerItem,
+.breedItem,
 .serviceItem {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -116,7 +116,7 @@ body {
     padding: 0;
 }
 
-.offerItem p:first-child,
+.breedItem p:first-child,
 .serviceItem p:first-child {
     font-weight: bold;
 }
@@ -226,7 +226,7 @@ button:hover {
         font-size: 0.7em;
     }
 
-    .offerItem,
+    .breedItem,
     .serviceItem {
         padding: 8px;
         margin-bottom: 8px;
@@ -269,7 +269,7 @@ button:hover {
         font-size: 0.6em;
     }
 
-    .offerItem,
+    .breedItem,
     .serviceItem {
         padding: 5px;
         margin-bottom: 5px;

@@ -5,13 +5,13 @@ final class DAOFactory
     private static $askDAO;
     private static $conductToDAO;
     private static $contactFormDAO;
-    private static $offerDAO;
+    private static $breedDAO;
     private static $pairDAO;
-    private static $serviceDAO;
+    private static $featureDAO;
     private static $userAnswerDAO;
     private static $userDAO;
     private static $questionDAO;
-    private static $packDAO;
+    private static $familyDAO;
 
     private function __construct() {}
 
@@ -47,12 +47,12 @@ final class DAOFactory
         return self::$contactFormDAO;
     }
 
-    public static function getOfferDAO()
+    public static function getBreedDAO()
     {
-        if (!self::$offerDAO) {
-            self::$offerDAO = new OfferDAO();
+        if (!self::$breedDAO) {
+            self::$breedDAO = new BreedDAO();
         }
-        return self::$offerDAO;
+        return self::$breedDAO;
     }
 
     public static function getPairDAO()
@@ -63,12 +63,12 @@ final class DAOFactory
         return self::$pairDAO;
     }
 
-    public static function getServiceDAO()
+    public static function getFeatureDAO()
     {
-        if (!self::$serviceDAO) {
-            self::$serviceDAO = new ServiceDAO();
+        if (!self::$featureDAO) {
+            self::$featureDAO = new FeatureDAO();
         }
-        return self::$serviceDAO;
+        return self::$featureDAO;
     }
 
     public static function getUserAnswerDAO()
@@ -95,11 +95,11 @@ final class DAOFactory
         return self::$questionDAO;
     }
 
-    public static function getPackDAO()
+    public static function getFamilyDAO()
     {
-        if (!self::$packDAO) {
-            self::$packDAO = new PackDAO();
+        if (!self::$familyDAO) {
+            self::$familyDAO = new FamilyDAO();
         }
-        return self::$packDAO;
+        return self::$familyDAO;
     }
 }

@@ -2,7 +2,7 @@
 
 title Design Pattern: MVC
 
-package "Database" {
+familyage "Database" {
   class AnswerDAO
   class AskDAO
   class ConductToDAO
@@ -11,8 +11,8 @@ package "Database" {
   class DAO
   class DAOFactory
   class DatabaseConn
-  class OfferDAO
-  class PackDAO
+  class breedDAO
+  class familyDAO
   class PairDAO
   class QuestionDAO
   class Service
@@ -20,14 +20,14 @@ package "Database" {
 }
 
 
-package "Src"{
-package "Models" {
+familyage "Src"{
+familyage "Models" {
   class Answer
   class Ask
   class ConductTo
   class ContactForm
-  class Offer
-  class Pack
+  class breed
+  class family
   class Pair
   class Question
   class User
@@ -35,26 +35,26 @@ package "Models" {
   class ReasonForm
 }
 
-package "Controller" {
+familyage "Controller" {
   class QuestionnaireController
   class ContactController
   class ReasonController
 }
 }
 
-package "Web" {
-  package "Assets" {
-    package "CSS" {
+familyage "Web" {
+  familyage "Assets" {
+    familyage "CSS" {
       class Style
     }
-    package "Img" {
+    familyage "Img" {
       class Background
     }
-    package "JS" {
+    familyage "JS" {
       class Script
     }
   }
-  package "Views" {
+  familyage "Views" {
     class Error404Web
     class HeaderWeb
     class FooterWeb
@@ -76,8 +76,8 @@ Answer <-- AnswerDAO
 Ask <-- AskDAO
 ConductTo <-- ConductToDAO
 ContactForm <-- ContactFormDAO
-Offer <-- OfferDAO
-Pack <-- PackDAO
+breed <-- breedDAO
+family <-- familyDAO
 Pair <-- PairDAO
 User <-- UserDAO
 

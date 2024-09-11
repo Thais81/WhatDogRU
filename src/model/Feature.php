@@ -6,7 +6,7 @@ class feature
     private $feature_id;
     private $feature_content;
     private $feature_rate;
-    private $pack_id;
+    private $family_id;
 
     // Getters
     public function getFeatureId()
@@ -24,9 +24,9 @@ class feature
         return $this->feature_rate;
     }
 
-    public function getPackId()
+    public function getFamilyId()
     {
-        return $this->pack_id;
+        return $this->family_id;
     }
 
     // Setters
@@ -40,9 +40,9 @@ class feature
         $this->feature_content = $feature_content;
     }
 
-    public function setPackId($pack_id)
+    public function setFamilyId($family_id)
     {
-        $this->pack_id = $pack_id;
+        $this->family_id = $family_id;
     }
 
     public function setFeatureRate($feature_rate)

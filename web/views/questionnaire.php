@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['answer_id'])) {
 $question = $questionData['question'];
 $userId = $questionData['user_id'];
 $answers = $questionData['answers'];
-$services = $questionData['services'];
+$features = $questionData['features'];
 $offer = $questionData['offer'];
 $totalPrice = $questionData['total_price'];
 
@@ -45,11 +45,11 @@ $totalPrice = $questionData['total_price'];
                 <p><?php echo htmlspecialchars($offer->getOfferName()); ?></p>
                 <p>À partir de: <?php echo htmlspecialchars($offer->getOfferPrice()); ?> €</p>
             </div>
-            <?php if ($services) ?>
-            <?php foreach ($services as $service) : ?>
-                <div class="serviceItem">
-                    <p><?php echo htmlspecialchars($service->getServiceContent()); ?></p>
-                    <p><?php echo htmlspecialchars($service->getServicePrice()); ?> €</p>
+            <?php if ($features) ?>
+            <?php foreach ($features as $feature) : ?>
+                <div class="featureItem">
+                    <p><?php echo htmlspecialchars($feature->getfeatureContent()); ?></p>
+                    <p><?php echo htmlspecialchars($feature->getfeaturePrice()); ?> €</p>
                 </div>
             <?php endforeach; ?>
             <button id="bye">Quitter</button>

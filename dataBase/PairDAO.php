@@ -12,11 +12,11 @@ class pairDAO extends DAO
         parent::__construct('pair', 'pair_id');
     }
 
-    public function createPair($answer_id, $service_id)
+    public function createPair($answer_id, $feature_id)
     {
         $data = [
             'answer_id' => $answer_id,
-            'service_id' => $service_id
+            'feature_id' => $feature_id
         ];
         $pairId = $this->create($data);
         return $this->getPairById($pairId);
@@ -26,9 +26,9 @@ class pairDAO extends DAO
     public function createObjectFromRow($row)
     {
         $result = new Pair();
-        $result->setpairId($row['pair_id']);
+        $result->setPairId($row['pair_id']);
         $result->setAnswerId($row['answer_id']);
-        $result->setServiceId($row['service_id']);
+        $result->setFeatureId($row['feature_id']);
         return $result;
     }
     public function getPairById($pair_id)
@@ -40,12 +40,12 @@ class pairDAO extends DAO
         return $this->getAll();
     }
 
-    public function updatePair($pair_id, $answer_id, $service_id)
+    public function updatePair($pair_id, $answer_id, $feature_id)
     {
         $data = [
             'pair_id' => $pair_id,
             'answer_id' => $answer_id,
-            'esrvice_id' => $service_id
+            'feature_id' => $feature_id
         ];
         $this->update($pair_id, $data);
     }

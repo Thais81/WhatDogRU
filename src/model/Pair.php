@@ -3,7 +3,7 @@ class Pair
 {
     private $pair_id;
     private $answer_id;
-    private $service_id;
+    private $feature_id;
 
     //getters
     public function getPairId()
@@ -16,9 +16,9 @@ class Pair
         return $this->answer_id;
     }
 
-    public function getServiceId()
+    public function getFeatureId()
     {
-        return $this->service_id;
+        return $this->feature_id;
     }
     //setters
     public function setPairId($pair_id)
@@ -29,8 +29,8 @@ class Pair
     {
         $this->answer_id = $answer_id;
     }
-    public function setServiceId($service_id)
+    public function setFeatureId($feature_id)
     {
-        $this->service_id = $service_id;
+        $this->feature_id = $feature_id;
     }
 }

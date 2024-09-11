@@ -5,7 +5,7 @@ require 'dataBase/UserDAO.php';
 require 'dataBase/UserAnswerDAO.php';
 require 'dataBase/AskDAO.php';
 require 'dataBase/OfferDAO.php';
-require 'dataBase/ServiceDAO.php';
+require 'dataBase/FeatureDAO.php';
 require 'dataBase/ConductToDAO.php';
 
 class QuestionnaireController
@@ -15,7 +15,7 @@ class QuestionnaireController
     private $askDAO;
     private $questionDAO;
     private $answerDAO;
-    private $serviceDAO;
+    private $featureDAO;
     private $offerDAO;
     private $conductToDAO;
 
@@ -26,7 +26,7 @@ class QuestionnaireController
         $this->askDAO = new AskDAO();
         $this->questionDAO = new QuestionDAO();
         $this->answerDAO = new AnswerDAO();
-        $this->serviceDAO = new ServiceDAO();
+        $this->featureDAO = new FeatureDAO();
         $this->offerDAO = new OfferDAO();
         $this->conductToDAO = new ConductToDAO();
     }
@@ -44,9 +44,9 @@ class QuestionnaireController
                 'user_id' => $user->getUserId(),
                 'question' => $question,
                 'answers' => $answers,
-                'services' => [],
+                'features' => [],
                 'offer' => null,
-                'total_price' => null
+                'total_rate' => null
             ];
         }
         return null;
@@ -74,11 +74,11 @@ class QuestionnaireController
         }
     }
 
-    public function findService($answerId)
+    public function findFeature($answerId)
     {
-        $service = $this->serviceDAO->getServiceByAnswerId($answerId);
-        if ($service) {
-            return $service;
+        $feature = $this->featureDAO->getFeatureByAnswerId($answerId);
+        if ($feature) {
+            return $feature;
         } else {
             return null;
         }
@@ -87,11 +87,7 @@ class QuestionnaireController
     public function isLastAnswer($answerId)
     {
         $answer = $this->answerDAO->isLastAnswer($answerId);
-        if ($answer) {
-            return $answer;
-        } else {
-            return null;
-        }
+        return $answer;
     }
 
     public function findOffer($answerId)
@@ -125,12 +121,12 @@ class QuestionnaireController
                     'user_id' => $userId,
                     'question' => $nextQuestion,
                     'answers' => $answers,
-                    'services' => [],
+                    'features' => [],
                     'offer' => null,
-                    'total_price' => null
+                    'total_rate' => null
                 ];
             } else {
-                // Fin du questionnaire, récupérer tous les services pour les réponses sélectionnées
+                // Fin du questionnaire, récupérer tous les features pour les réponses sélectionnées
                 return $this->getResultData($userId);
             }
         }
@@ -139,15 +135,15 @@ class QuestionnaireController
     public function getResultData($userId)
     {
         $answerIds = $this->userAnswerDAO->getAnswerIdsByUserId($userId);
-        $services = [];
+        $features = [];
         $offer = null;
         $offerName = "";
-        $offerPrice = 0;
+        $offerRate = 0;
 
         foreach ($answerIds as $answerId) {
-            $service = $this->serviceDAO->getServiceByAnswerId($answerId);
-            if ($service) {
-                $services[] = $service;
+            $feature = $this->featureDAO->getFeatureByAnswerId($answerId);
+            if ($feature) {
+                $features[] = $feature;
             }
 
             $offerId = $this->conductToDAO->getOfferIdByAnswerId($answerId);
@@ -156,7 +152,7 @@ class QuestionnaireController
                     $offer = $this->offerDAO->getOfferById($offerId);
                     if ($offer) {
                         $offerName = $offer->getOfferName();
-                        $offerPrice = $offer->getOfferPrice();
+                        $offerRate = $offer->getOfferRate();
                     }
                 } catch (Exception $e) {
                     var_dump($e->getMessage());
@@ -168,19 +164,19 @@ class QuestionnaireController
  array_sum(...)
 Cette fonction prend le tableau des prix retourné par array_map()
  et calcule la somme de tous ces prix. */
-        $servicePrice = array_sum(array_map(function ($service) {
-            return $service->getServicePrice();
-        }, $services));
+        $featureRate = array_sum(array_map(function ($feature) {
+            return $feature->getFeatureRate();
+        }, $features));
 
-        $totalPrice = $offerPrice + $servicePrice;
+        $totalrate = $offerRate + $featureRate;
 
         return [
             'user_id' => $userId,
-            'services' => $services,
+            'features' => $features,
             'question' => null,
             'answers' => [],
             'offer' => $offer,
-            'total_price' => $totalPrice
+            'total_rate' => $totalrate
         ];
     }
 }

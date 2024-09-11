@@ -1,0 +1,68 @@
+@startuml
+skinparam monochrome true
+skinparam defaultTextAlignment center
+skinparam defaultFontName Helvetica
+skinparam linetype ortho
+
+start
+if (Taille préférée?) then (Petit)
+  if (Niveau d'énergie?) then (Calme)
+    if (Quantité de poils?) then (Sans poils)
+      if (Réaction au "non"?) then (Je boude)
+        :Carlin;
+      else (Yeux doux)
+        :Chien Chinois à Crête;
+      endif
+    elseif (Peu de poils)
+      :Carlin;
+    else (Beaucoup)
+      if (Coiffure préférée?) then (Crête punk)
+        :Pékinois;
+      else (Dreadlocks)
+        :Autre race à poils longs;
+      endif
+    endif
+  elseif (Modéré)
+    if (Plat préféré?) then (Tacos)
+      :Chihuahua;
+    else (Fish and chips)
+      :Jack Russell Terrier;
+    endif
+  else (Énergique)
+    :Jack Russell Terrier;
+  endif
+elseif (Moyen)
+  if (Besoin en exercice?) then (Faible)
+    :Bouledogue français;
+  else (Élevé)
+    if (Réaction face à un cambrioleur?) then (Cherche des friandises)
+      :Bouledogue français;
+    else (Pourchasse en aboyant)
+      :Border Collie;
+    endif
+  endif
+else (Grand)
+  if (Expérience avec les chiens?) then (Débutant)
+    if (Patience IKEA?) then (Peu)
+      :Labrador Retriever;
+    else (Beaucoup)
+      if (Style de danse?) then (Macarena)
+        :Labrador Retriever;
+      else (Breakdance)
+        :Berger Allemand;
+      endif
+    endif
+  else (Expérimenté)
+    if (Habitat?) then (Appartement)
+      if (Style vestimentaire?) then (Costume)
+        :Dogue Allemand;
+      else (Survêtement)
+        :Husky Sibérien;
+      endif
+    else (Maison)
+      :Husky Sibérien;
+    endif
+  endif
+endif
+stop
+@enduml

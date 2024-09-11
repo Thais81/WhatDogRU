@@ -1,0 +1,42 @@
+@startuml RoofDevis
+
+title Classe Abstraite DAO et ses Classes Filles
+
+' Classe abstraite DAO
+abstract class DAO {
+    - $pdo : PDO
+    - $tableName : string
+    
+    + __construct($tableName)
+    + getById($id) : Object
+    + getAll() : array
+    + create($data) : void
+    + update($id, $data) : void
+    + delete($id) : void
+    
+    # createObjectFromRow($row) : Object
+}
+
+' Classes filles héritant de DAO
+class AnswerDAO
+class AskDAO
+class ConductToDAO
+class ContactFormDAO
+class OfferDAO
+class PackDAO
+class PairDAO
+class QuestionDAO
+class UserDAO
+
+' Relations d'héritage
+DAO <|-- AnswerDAO
+DAO <|-- AskDAO
+DAO <|-- ConductToDAO
+DAO <|-- ContactFormDAO
+DAO <|-- OfferDAO
+DAO <|-- PackDAO
+DAO <|-- PairDAO
+DAO <|-- QuestionDAO
+DAO <|-- UserDAO
+
+@enduml

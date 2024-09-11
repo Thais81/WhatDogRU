@@ -1,0 +1,43 @@
+@startuml RoofDevis
+
+title Design Pattern: MVC
+
+package "Database" {
+
+}
+
+
+package "Src"{
+package "Models" {
+
+}
+
+package "Controller" {
+
+}
+}
+
+package "Web" {
+  package "Assets" {
+    package "CSS" {
+    }
+    package "Img" {
+    }
+    package "JS" {    }
+  }
+  package "Views" {
+  }
+}
+
+class Index
+
+
+Controller <-- Models
+
+Models <-- Database
+
+Views <-- Controller
+
+Web <-- Index
+
+@enduml

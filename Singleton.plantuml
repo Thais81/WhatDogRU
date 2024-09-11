@@ -1,0 +1,25 @@
+@startuml RoofDevis
+title Singleton Pattern - Classe Database
+
+' Classe Database
+class Database {
+    - private static $instance = null;
+    - private $pdo;
+
+    + __construct($config) : void
+    + static getInstance() : Database
+    + static getConnection() : PDO
+    + getPdo() : PDO
+}
+note right of Database
+  Le pattern Singleton est utilisé
+  pour garantir une seule instance
+  de Database.
+end note
+
+' Relations
+Database --> PDO : utilise
+Database -down-> config : charge configuration
+
+
+@enduml

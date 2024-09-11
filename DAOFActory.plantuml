@@ -1,0 +1,15 @@
+@startuml RoofDevis
+
+title DAOFactory 
+' Classe Singleton DAOFactory
+ class DAOFactory {
+
+ }
+' Relations entre DAOFactory et les classes DAO
+DAOFactory --> AnswerDAO
+DAOFactory --> ServiceDAO
+DAOFactory --> UserDAO
+DAOFactory --> QuestionDAO
+DAOFactory --> etc
+
+@enduml

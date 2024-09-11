@@ -1,0 +1,96 @@
+@startuml RoofDevis
+
+title Design Pattern: MVC
+
+package "Src"{
+package "Models" {
+  class Answer
+  class Ask
+  class ConductTo
+  class ContactForm
+  class Offer
+  class Pack
+  class Pair
+  class Question
+  class User
+  class UserAnswer
+  class ReasonForm
+}
+
+package "Controller" {
+  class QuestionnaireController
+  class ContactController
+  class ReasonController
+}
+}
+
+package "Database" {
+  class AnswerDAO
+  class AskDAO
+  class ConductToDAO
+  class Config
+  class ContactFormDAO
+  class DAO
+  class DAOFactory
+  class DatabaseConn
+  class OfferDAO
+  class PackDAO
+  class PairDAO
+  class QuestionDAO
+  class Service
+  class UserDAO
+}
+
+package "Web" {
+  package "Assets" {
+    package "CSS" {
+      class Style
+    }
+    package "Img" {
+      class Background
+    }
+    package "JS" {
+      class Script
+    }
+  }
+  package "Views" {
+    class Error404Web
+    class HeaderWeb
+    class FooterWeb
+    class QuestionnaireWeb
+    class ContactFormWeb
+    class ReasonFormWeb
+    class GoodByeWeb
+  }
+}
+class Index
+
+User <-- Questionnaire
+Questionnaire <-- Question
+Question <-- Answer
+Answer <-- UserAnswer
+UserAnswer <-- User
+Question <-- Ask
+Ask <-- Answer
+Answer <-- ConductTo
+ConductTo <-- Offer
+Answer <-- Pair
+Pair <-- Service
+ContactForm <-- User
+ReasonForm <-- User
+
+QuestionnaireController <-- Questionnaire
+ContactController <-- ContactForm
+ReasonController <-- ReasonForm
+
+Question <-- QuestionDAO
+Answer <-- AnswerDAO
+Ask <-- AskDAO
+ConductTo <-- ConductToDAO
+ContactForm <-- ContactFormDAO
+Offer <-- OfferDAO
+Pack <-- PackDAO
+Pair <-- PairDAO
+User <-- UserDAO
+
+@enduml

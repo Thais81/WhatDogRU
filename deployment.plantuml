@@ -1,0 +1,28 @@
+@startuml RoofDevis
+
+title Deployment Diagram
+
+actor User
+
+frame "Interactive Questionnaire Application (PHP 8.1)" as app {
+  [Application]
+}
+
+frame "WordPress Site (hi5clive theme)" as site {
+  [WordPress]
+}
+
+frame "Contact Forms Plugin" as contact {
+  [Contact Forms]
+}
+
+frame "reCAPTCHA Plugin" as recaptcha {
+  [reCAPTCHA]
+}
+
+User --> app
+app --> site
+site --> contact
+site --> recaptcha
+
+@enduml

@@ -1,0 +1,281 @@
+body {
+    scroll-behavior: none;
+    font-family: Raleway, sans-serif;
+    line-height: 1.6;
+    font-size: 1em;
+    color: #FFFFFF;
+    background-image: url('../img/background.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    place-self: center;
+    align-items: center;
+    background-color: black;
+    margin-bottom: 20px;
+    border: 0.20em solid #4CAF50;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 0.25em;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.questionBox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: larger;
+    font-weight: 600;
+}
+
+.selectedQuestion {
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+}
+
+.answerBox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-bottom: 50px;
+}
+
+.chooseAnswer {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.chooseAnswer:hover {
+    background-color: #143115;
+}
+
+/********************************************résultats**********************************************/
+.resultBox {
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.resultBox h1 {
+    font-size: 1.5em;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.resultBox h2 {
+    font-size: 1em;
+    color: white;
+    margin-bottom: 0;
+}
+
+.resultBox p {
+    font-size: 0.8em;
+    color: #444;
+    margin: 5px 0;
+}
+
+.offerItem,
+.serviceItem {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.serviceItem p {
+    margin: 0;
+    padding: 0;
+}
+
+.offerItem p:first-child,
+.serviceItem p:first-child {
+    font-weight: bold;
+}
+
+#win {
+    font-weight: bold;
+}
+
+/**********************************************ContactFormulaire***********************************/
+
+.form-container {
+    scroll-behavior: none;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #444;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group:first-child {
+    margin-right: 20px;
+}
+
+.form-group:last-child {
+    margin-left: 20px;
+}
+
+.form-group-inline {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+    .form-group-inline {
+        flex-direction: column;
+    }
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #143115;
+    transform: scale(1.02);
+}
+
+
+/****************************************Responsive*************************************************/
+
+/*Tablettes (600px à 900px)*/
+@media (max-width: 900px) {
+    body {
+        font-size: 1.2em;
+    }
+
+    #container {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    .questionBox {
+        font-size: larger;
+    }
+
+    .chooseAnswer {
+        padding: 8px 16px;
+    }
+
+    .resultBox {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    .resultBox h1 {
+        font-size: 1.4em;
+    }
+
+    .resultBox h2 {
+        font-size: 0.9em;
+    }
+
+    .resultBox p {
+        font-size: 0.7em;
+    }
+
+    .offerItem,
+    .serviceItem {
+        padding: 8px;
+        margin-bottom: 8px;
+    }
+}
+
+/*Téléphones (600px) */
+@media (max-width: 600px) {
+    body {
+        font-size: 1em;
+    }
+
+    #container {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .questionBox {
+        font-size: medium;
+    }
+
+    .chooseAnswer {
+        padding: 6px 12px;
+    }
+
+    .resultBox {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .resultBox h1 {
+        font-size: 1.2em;
+    }
+
+    .resultBox h2 {
+        font-size: 0.8em;
+    }
+
+    .resultBox p {
+        font-size: 0.6em;
+    }
+
+    .offerItem,
+    .serviceItem {
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+
+    button {
+        margin-bottom: 2px;
+    }
+}

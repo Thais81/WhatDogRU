@@ -1,0 +1,73 @@
+@startuml diagramme architecture globale
+skinparam backgroundColor #FEFEFE
+skinparam handwritten false
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+
+actor "Utilisateur" as User
+actor "Administrateur" as Admin
+
+package "Site WordPress Roofline" {
+    rectangle "Thème Hi5clive" as Theme
+    
+    package "Plugin Générateur de Devis" {
+        rectangle "Questionnaire" as Quiz
+        rectangle "Logique de calcul" as Logic
+        rectangle "Interface admin" as AdminInterface
+    }
+    
+    rectangle "Plugin Fluent Forms" as FluentForms
+    
+    rectangle "Page de devis" as QuotePage
+    
+    database "Base de données WordPress" as WPDB {
+        folder "Tables WordPress standard" as WPTables
+        folder "Tables du plugin de devis" as DevisTables
+        folder "Tables Fluent Forms" as FFTables
+    }
+}
+
+cloud "Serveur de messagerie" as EmailServer
+
+User -down-> Theme : Visite
+User -down-> Quiz : Remplit
+Quiz -right-> Logic : Envoie les réponses
+Logic -down-> DevisTables : Stocke le devis
+Logic -down-> QuotePage : Affiche le devis
+QuotePage -right-> FluentForms : Intègre le formulaire
+User -down-> FluentForms : Soumet les coordonnées
+
+FluentForms -down-> FFTables : Enregistre les coordonnées
+FluentForms -right-> DevisTables : Associe coordonnées au devis
+FluentForms -right-> EmailServer : Déclenche l'envoi
+EmailServer -up-> User : Envoie le devis complet
+EmailServer -up-> Admin : Notifie nouveau devis
+
+Admin -up-> AdminInterface : Gère les paramètres
+AdminInterface -left-> DevisTables : Sauvegarde la configuration
+
+note right of Quiz : Shortcode intégré\ndans une page WordPress
+note bottom of FluentForms : Capture les coordonnées\net déclenche l'envoi du devis
+note left of DevisTables : Stocke les devis,\nleurs détails et la configuration
+note left of AdminInterface : Permet de configurer\nles paramètres du devis
+
+@enduml
+
+Base de données unifiée :
+
+Tables WordPress standard (WPTables)
+Tables du plugin de devis (DevisTables)
+Tables Fluent Forms (FFTables)
+
+
+
+ Interactions avec la base de données :
+Toutes les interactions avec la base de données sont centralisées dans la base de données WordPress unique.
+La logique de calcul stocke le résultat du devis
+directement dans les tables du plugin de devis (DevisTables)
+au sein de la base de données WordPress.
+L'interface d'administration sauvegarde la configuration dans ces mêmes tables.
+Fluent Forms enregistre les coordonnées dans ses propres tables (FFTables)
+et associe ces données au devis stocké dans les tables du plugin.
+
+

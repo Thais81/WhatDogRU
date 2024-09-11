@@ -1,0 +1,58 @@
+@startuml Devis Roofline
+
+package src{
+    package model{
+        class Question(
+            pdo: ;
+            private table_name = "question";
+            private question_id;
+            private question_content;
+            private pack_id;
+        )
+        class Answer()
+        class Pack
+        class Offer()
+        class service()
+        class Session()
+        class SessionAnswer()
+        class ResultSimulation()
+        class RefusalReason()
+
+    }
+    package controller{
+    class QuestionnaireController()
+    class ResultController()
+    class ContactController()
+    class ReasonController()
+    class SessionController()
+    class SessionAnswerController()
+
+
+    }
+}
+package web{
+package view{
+    header.php
+    footer.php
+    pie-chart.php
+    questionnaire.php
+    classContactForm.php
+    reasonForm.php
+    result.php
+}
+package assets{
+  style.css
+  script.js  
+}
+}
+
+
+package database{
+class config()
+class database()
+}
+
+package public{
+index.php
+}
+@enduml

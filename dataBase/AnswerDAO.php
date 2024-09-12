@@ -1,5 +1,4 @@
 <?php
-
 require_once 'dataBase/DatabaseConn.php';
 require_once 'src/model/Answer.php';
 require_once 'dataBase/DAO.php';

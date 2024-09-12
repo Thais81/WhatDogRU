@@ -25,9 +25,6 @@
         $page = '404';
     }
 
-    // Inclusion de l'en-tête
-    include 'web/views/header.php';
-
     // Inclusion de la page demandée
     switch ($page) {
         case 'contact':
@@ -47,9 +44,6 @@
             include 'web/views/questionnaire.php';
             break;
     }
-
-    // Inclusion du pied de page
-    include 'web/views/footer.php';
     ?>
 </body>
 

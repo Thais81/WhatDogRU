@@ -1,9 +1,16 @@
+@font-face {
+    font-family: 'PuppyBellies.ttf';
+    src: url('../font/puppybellies/PuppyBellies.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     scroll-behavior: none;
-    font-family: Raleway, sans-serif;
+    font-family: 'PuppyBellies.ttf', sans-serif;
     line-height: 1.6;
     font-size: 1em;
-    color: #FFFFFF;
+    color: #bc1823;
     background-image: url('../img/background.webp');
     background-size: cover;
     background-position: center;
@@ -22,13 +29,13 @@ body {
     flex-direction: column;
     place-self: center;
     align-items: center;
-    background-color: black;
+    background-color: whitesmoke;
     margin-bottom: 20px;
-    border: 0.20em solid #4CAF50;
+    border: 0.10em solid #bc1823;
     width: 100%;
-    max-width: 800px;
-    border-radius: 0.25em;
-    padding: 20px;
+    max-width: 600px;
+    border-radius: 1em;
+    padding: 10px;
     box-sizing: border-box;
 }
 
@@ -58,7 +65,7 @@ body {
 
 .chooseAnswer {
     display: inline-block;
-    background-color: #4CAF50;
+    background-color: #bc1823;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -70,7 +77,7 @@ body {
 }
 
 .chooseAnswer:hover {
-    background-color: #143115;
+    background-color: #2f0701;
 }
 
 /********************************************résultats**********************************************/
@@ -82,7 +89,7 @@ body {
 
 .resultBox h1 {
     font-size: 1.5em;
-    background-color: #4CAF50;
+    background-color: #bc1823;
     color: white;
     padding: 10px 20px;
     border-radius: 10px;
@@ -97,7 +104,7 @@ body {
 
 .resultBox p {
     font-size: 0.8em;
-    color: #444;
+    color: #2f0701;
     margin: 5px 0;
 }
 
@@ -134,7 +141,7 @@ body {
     padding: 20px;
     margin: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #444;
+    background-color: #2f0701;
 }
 
 .form-group {

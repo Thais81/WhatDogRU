@@ -32,7 +32,7 @@ familyage "Database" {
   class ContactFormDAO
   class DAO
   class DAOFactory
-  class DatabaseConn
+  class Database
   class breedDAO
   class familyDAO
   class PairDAO

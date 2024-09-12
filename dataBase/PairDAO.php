@@ -1,6 +1,6 @@
 <?php
 
-require_once 'dataBase/DatabaseConn.php';
+require_once 'dataBase/Database.php';
 require_once 'dataBase/DAO.php';
 require_once 'src/model/Pair.php';
 

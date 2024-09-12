@@ -1,5 +1,5 @@
 <?php
-require_once 'dataBase/DatabaseConn.php';
+require_once 'dataBase/Database.php';
 
 class family
 {

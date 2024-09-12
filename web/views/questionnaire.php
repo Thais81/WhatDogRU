@@ -39,12 +39,8 @@ $totalrate = $questionData['total_rate'];
         </form>
     <?php elseif (isset($breed)) : ?>
         <div class="resultBox">
-            <h1>Votre résultat: <?php echo htmlspecialchars($totalrate); ?> €</h1>
-            <h2>En détails:</h2>
-            <div class='breedItem'>
-                <p><?php echo htmlspecialchars($breed->getbreedName()); ?></p>
-                <p>À partir de: <?php echo htmlspecialchars($breed->getbreedrate()); ?> €</p>
-            </div>
+            <h1><?php echo htmlspecialchars($breed->getbreedName()); ?></h1>
+            <!--  <h2>vos caractéristiques:</h2>
             <?php if ($features) ?>
             <?php foreach ($features as $feature) : ?>
                 <div class="featureItem">
@@ -54,10 +50,10 @@ $totalrate = $questionData['total_rate'];
             <?php endforeach; ?>
             <button id="bye">Quitter</button>
             <button type="submit" id='win'>Être recontacté</button>
+        </div> -->
+        <?php else : ?>
+            <div>Pas de données disponibles</div>
+        <?php endif; ?>
         </div>
-    <?php else : ?>
-        <div>Pas de données disponibles</div>
-    <?php endif; ?>
-</div>
 
-<script type="text/javascript" src="web/assets/js/script.js"></script>
+        <script type="text/javascript" src="web/assets/js/script.js"></script>

@@ -1,6 +1,6 @@
 <?php
-include '/wamp64/www/Roofline_Devis/dataBase/Database.php';
-include '/wamp64/www/Roofline_Devis/src/controller/QuestionnaireController.php';
+include '/wamp64/www/WhatDogRU/dataBase/Database.php';
+include '/wamp64/www/WhatDogRU/src/controller/QuestionnaireController.php';
 
 $questionnaireController = new QuestionnaireController();
 $questionData = null;

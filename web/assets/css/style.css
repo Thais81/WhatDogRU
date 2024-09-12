@@ -31,7 +31,7 @@ body {
     align-items: center;
     background-color: whitesmoke;
     margin-bottom: 20px;
-    border: 0.10em solid #bc1823;
+    border: 0.20em solid #bc1823;
     width: 100%;
     max-width: 600px;
     border-radius: 1em;
@@ -58,7 +58,8 @@ body {
 
 .answerBox {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
     gap: 10px;
     padding-bottom: 50px;
 }
@@ -68,6 +69,7 @@ body {
     background-color: #bc1823;
     color: white;
     padding: 10px 20px;
+    margin-bottom: 10px;
     border: none;
     cursor: pointer;
     border-radius: 10px;

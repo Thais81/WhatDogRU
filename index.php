@@ -33,6 +33,9 @@
         case 'goodBye':
             include 'web/views/goodBye.php';
             break;
+        case 'result':
+            include 'web/views/result.php';
+            break;
         case 'site':
             include 'web/views/home.php';
             break;
@@ -45,9 +48,9 @@
             break;
     }
     //TO-DO:
-    //vérifier si pb avec la requête de jointure sur conductTo (sort toujours la même race de chien)
     //classe de résultat
     //Affichage de résultat dans une autre view
+    //gérer la redirection à la fin du questionnaire dans la view web/views/result.php
     //Mettre une image par race et stocker les images
     //faire les feautures (avec score?)
 
